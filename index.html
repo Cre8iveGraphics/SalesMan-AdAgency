@@ -1,137 +1,194 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SalesMan AdAgency - AI Services</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fff7e0, #ffe9e0, #ffd7ee);
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      color: #e91e63;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #6b21a8;
+    }
+    .services, .packages, .testimonials, .video, .contact {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #d63384;
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: white;
+      border: 2px solid #f9c2d1;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card h2 {
+      color: #ff5722;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .price {
+      font-weight: bold;
+      color: #6a1b9a;
+      margin: 0.5rem 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #ec4899;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background: #db2777;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 1rem;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
 
-export default function SalesManAIServices() {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 via-orange-50 to-pink-100 p-6">
-      <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-5xl font-extrabold text-pink-600 drop-shadow mb-4">🚀 SalesMan AdAgency</h1>
-        <p className="text-xl text-gray-700 font-medium mb-10">We don’t guess – we use <span className="text-purple-600">AI</span> to sell!</p>
+  <header>
+    <h1>🚀 SalesMan AdAgency</h1>
+    <p>We don’t guess – we use <strong>AI</strong> to sell!</p>
+  </header>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {services.map((service, index) => (
-            <Card key={index} className="rounded-2xl shadow-xl border-2 border-pink-300 bg-white hover:scale-105 transition-transform duration-300">
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-bold text-orange-600 mb-3">{service.title}</h2>
-                <p className="text-gray-700 text-sm mb-4">{service.description}</p>
-                <p className="text-purple-800 font-semibold mb-4">Price: {service.price}</p>
-                <Button variant="default" className="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold">Order Now</Button>
-              </CardContent>
-            </Card>
-          ))}
-        </motion.div>
-
-        <div className="mt-16 text-center">
-          <h3 className="text-3xl font-extrabold text-purple-700 mb-6">💼 Ready-Made Packages</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
-              <Card key={index} className="rounded-2xl shadow-2xl bg-gradient-to-r from-pink-100 via-orange-100 to-yellow-50 border border-pink-200">
-                <CardContent className="p-6">
-                  <h4 className="text-2xl font-bold text-pink-700 mb-2">{pkg.name}</h4>
-                  <p className="text-gray-700 text-sm mb-3">{pkg.includes}</p>
-                  <p className="text-purple-900 font-bold mb-4">Price: {pkg.price}</p>
-                  <Button variant="default" className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold">Get Package</Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-20 text-center">
-          <h3 className="text-3xl font-bold text-orange-600 mb-4">🌟 Client Testimonials</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-            <Card className="bg-white shadow-md rounded-xl p-5 border-l-4 border-pink-400">
-              <p className="text-gray-700 italic">“SalesMan AdAgency’s AI ads gave my brand a new life. The videos are 🔥 and I got more DMs than ever!”</p>
-              <p className="text-right font-semibold text-pink-700 mt-2">– Riya D., Fashion Store Owner</p>
-            </Card>
-            <Card className="bg-white shadow-md rounded-xl p-5 border-l-4 border-purple-400">
-              <p className="text-gray-700 italic">“Their chatbot setup doubled my conversions. Now I don’t miss a single lead!”</p>
-              <p className="text-right font-semibold text-purple-700 mt-2">– Akash S., Digital Marketer</p>
-            </Card>
-          </div>
-        </div>
-
-        <div className="mt-20 text-center">
-          <h3 className="text-3xl font-bold text-pink-700 mb-4">🎬 Demo Preview</h3>
-          <p className="text-gray-600 mb-4">Here’s a sample of what our AI-generated videos look like:</p>
-          <div className="aspect-video w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="AI Ad Demo"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-
-        <div className="mt-20 text-center bg-white p-6 rounded-xl shadow-inner border border-pink-200">
-          <p className="text-lg font-semibold text-gray-800">📲 WhatsApp: <a href="https://wa.me/919284969878" className="text-blue-600 underline">92849 69878</a></p>
-          <p className="text-md text-pink-700 font-medium mt-2">🎁 First 10 Clients Get 1 Bonus AI Video Ad <span className="font-bold">FREE</span>!</p>
-        </div>
-
-        <footer className="mt-20 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} SalesMan AdAgency. Powered by Cre8ive Graphics.
-        </footer>
+  <section class="services">
+    <h2 class="section-title">✨ AI Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h2>🎥 AI Video Ad Creation</h2>
+        <p>Convert your product photos into reels with voiceovers.</p>
+        <p class="price">₹149 per video | 3 Ads @ ₹399</p>
+        <a href="#" class="btn">Order Now</a>
+      </div>
+      <div class="card">
+        <h2>🧾 AI Ad Copywriting</h2>
+        <p>High-converting captions for Facebook & Instagram.</p>
+        <p class="price">₹49 per copy | 10 @ ₹299</p>
+        <a href="#" class="btn">Order Now</a>
+      </div>
+      <div class="card">
+        <h2>🤖 AI Chatbot Setup</h2>
+        <p>WhatsApp and Website chatbot to convert leads 24x7.</p>
+        <p class="price">₹499 one-time</p>
+        <a href="#" class="btn">Order Now</a>
+      </div>
+      <div class="card">
+        <h2>🧬 AI Branding & Logo Kit</h2>
+        <p>Logo, fonts and colors designed by AI tools.</p>
+        <p class="price">₹199 per kit</p>
+        <a href="#" class="btn">Order Now</a>
+      </div>
+      <div class="card">
+        <h2>🎯 AI Audience Research</h2>
+        <p>We find your perfect audience using AI targeting.</p>
+        <p class="price">₹149 per niche</p>
+        <a href="#" class="btn">Order Now</a>
+      </div>
+      <div class="card">
+        <h2>📈 AI Analytics Report</h2>
+        <p>Get performance insight & strategy recommendations.</p>
+        <p class="price">₹99 per report</p>
+        <a href="#" class="btn">Order Now</a>
       </div>
     </div>
-  );
-}
+  </section>
 
-const services = [
-  {
-    title: "🎥 AI Video Ad Creation",
-    description: "Product photo to reels/videos with AI voice-over.",
-    price: "₹299 per video | Combo: 3 Ads @ ₹999",
-  },
-  {
-    title: "🧾 AI Ad Copywriting",
-    description: "High-converting captions for Facebook & Instagram.",
-    price: "₹49 per copy | 10 Copies Pack @ ₹299",
-  },
-  {
-    title: "🤖 AI Chatbot Setup",
-    description: "WhatsApp/Website bots that auto-convert customers.",
-    price: "₹999 one-time setup",
-  },
-  {
-    title: "🧬 AI Branding & Logo Kit",
-    description: "Logo, color palette, and fonts designed by AI.",
-    price: "₹299 per brand kit",
-  },
-  {
-    title: "🎯 AI Target Audience Research",
-    description: "We find your ideal audience using AI tools.",
-    price: "₹199 per niche",
-  },
-  {
-    title: "📈 AI Analytics Report",
-    description: "Performance insights & growth recommendations.",
-    price: "₹199 per report",
-  },
-];
+  <section class="packages">
+    <h2 class="section-title">💼 Packages</h2>
+    <div class="grid">
+      <div class="card">
+        <h2>Starter</h2>
+        <p>1 Video Ad + 1 Ad Copy</p>
+        <p class="price">₹149</p>
+        <a href="#" class="btn">Get Package</a>
+      </div>
+      <div class="card">
+        <h2>Smart</h2>
+        <p>3 Videos + 3 Copies + Branding Kit</p>
+        <p class="price">₹499</p>
+        <a href="#" class="btn">Get Package</a>
+      </div>
+      <div class="card">
+        <h2>Pro</h2>
+        <p>Weekly 4 Ads + Chatbot Setup</p>
+        <p class="price">₹999/month</p>
+        <a href="#" class="btn">Subscribe</a>
+      </div>
+    </div>
+  </section>
 
-const packages = [
-  {
-    name: "Starter",
-    includes: "1 Video Ad + 1 Copy",
-    price: "₹499",
-  },
-  {
-    name: "Smart",
-    includes: "3 Videos + 3 Copies + Branding Kit",
-    price: "₹1299",
-  },
-  {
-    name: "Pro",
-    includes: "Weekly 4 Ads + Copy + Chatbot Setup",
-    price: "₹1599/month",
-  },
-];
+  <section class="testimonials">
+    <h2 class="section-title">🌟 Testimonials</h2>
+    <div class="grid">
+      <div class="card">
+        <p>“SalesMan AdAgency's AI ads gave my brand a new life. The videos are 🔥 and I got more DMs than ever!”</p>
+        <p class="price">– Riya D., Fashion Brand</p>
+      </div>
+      <div class="card">
+        <p>“Their chatbot setup doubled my conversions. Now I don’t miss a single lead!”</p>
+        <p class="price">– Akash S., Marketer</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="video">
+    <h2 class="section-title">🎬 AI Video Demo</h2>
+    <p style="text-align:center; margin-bottom: 1rem;">Here’s a quick sample of what we create using AI:</p>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+  </section>
+
+  <section class="contact">
+    <h2 class="section-title">📞 Contact Us</h2>
+    <p style="text-align:center;">WhatsApp: <a href="https://wa.me/919284969878">92849 69878</a></p>
+    <p style="text-align:center;">🎁 First 10 clients get 1 Bonus AI Video Ad <strong>FREE</strong>!</p>
+  </section>
+
+  <footer>
+    © 2025 SalesMan AdAgency. Powered by Cre8ive Graphics.
+  </footer>
+
+</body>
+</html>
